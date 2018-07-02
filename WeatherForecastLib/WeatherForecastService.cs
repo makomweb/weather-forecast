@@ -1,15 +1,39 @@
-﻿using System.Net.Http;
+﻿using Newtonsoft.Json;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace WeatherForecastLib
 {
     public class WeatherForecastService
     {
-        public Task<HttpResponseMessage> FetchForecastAsync(string cityId)
+        public async Task<WeatherForecastDocument> FetchForecastAsync(string cityId)
         {
             var http = new HttpClient();
             var uri = new OpenWeatherMapApi().GetServiceUri(cityId);
-            return http.GetAsync(uri);
+            var response = await http.GetAsync(uri);
+            return await DeserializeAsync(response);
+        }
+        
+        private static async Task<WeatherForecastDocument> DeserializeAsync(HttpResponseMessage response)
+        {
+
+            var stream = await response.Content.ReadAsStreamAsync();
+            var raw = DeserializeFromStream<dynamic>(stream);
+            return new WeatherForecastDocument(raw);
+        }
+
+        private static T DeserializeFromStream<T>(Stream stream)
+        {
+            if (stream == null || stream.CanRead == false)
+                return default(T);
+
+            using (var streamReader = new StreamReader(stream))
+            using (var textReader = new JsonTextReader(streamReader))
+            {
+                var serializer = new JsonSerializer();
+                return serializer.Deserialize<T>(textReader);
+            }
         }
     }
 }

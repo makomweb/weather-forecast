@@ -16,7 +16,7 @@ namespace WeatherForecastTests
             var service = new WeatherForecastService();
             const string cityId = "2950159";
             var forecast = await service.FetchForecastAsync(cityId);
-            Assert.IsNotNull(forecast);
+            AssertForecastDocument(forecast);
         }
 
         [TestMethod]
