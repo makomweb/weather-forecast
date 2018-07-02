@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="OpenWeatherMapApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeatherForecastDocument.cs" />
+    <Compile Include="WeatherForecastItem.cs" />
     <Compile Include="WeatherForecastService.cs" />
   </ItemGroup>
   <ItemGroup>
