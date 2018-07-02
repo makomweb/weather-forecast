@@ -56,12 +56,31 @@ namespace WeatherForecastApp.ViewModels
             }
         }
 
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                if (_isBusy == value)
+                    return;
+
+                _isBusy = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string));
 
         private async void OnSearch(string city)
         {
             Title = $"Weather in {city}";
             Date = DateTime.Now.ToString("D");
+            IsBusy = true;
 
             try
             {
@@ -74,6 +93,10 @@ namespace WeatherForecastApp.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 
