@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="City.cs" />
+    <Compile Include="CityDeserializer.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="OpenWeatherMapApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

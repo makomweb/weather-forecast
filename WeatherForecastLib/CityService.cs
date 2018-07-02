@@ -11,6 +11,7 @@ namespace WeatherForecastLib
 
         public CityService(string json)
         {
+            Cities = CityDeserializer.Deserialize(json);
         }
 
         public Task<int> GetCityIdAsync(string cityName)
