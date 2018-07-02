@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeatherForecastApp.ViewModels
 {
-    class ForecastDayViewModel
+    public class ForecastDayViewModel
     {
+        public string Weekday { get; }
+
+        public string Date { get; }
+
+        public IEnumerable<ForecastDayItemViewModel> Items { get; }
+
+        public ForecastDayViewModel(DateTime day, IEnumerable<ForecastDayItemViewModel> items)
+        {
+            Weekday = string.Format("{0:dddd}", day.ToLocalTime());
+            Date = day.ToLocalTime().ToString("M");
+            Items = items;
+        }
     }
 }
