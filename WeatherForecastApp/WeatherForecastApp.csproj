@@ -52,7 +52,20 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ForecastDayItemViewModel.cs" />
+    <Compile Include="ViewModels\ForecastDayViewModel.cs" />
+    <Compile Include="ViewModels\ForecastViewModel.cs" />
+    <Compile Include="Views\ForecastDayItemView.xaml.cs">
+      <DependentUpon>ForecastDayItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForecastDayView.xaml.cs">
+      <DependentUpon>ForecastDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForecastView.xaml.cs">
+      <DependentUpon>ForecastView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,6 +78,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ForecastDayItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForecastDayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForecastView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
