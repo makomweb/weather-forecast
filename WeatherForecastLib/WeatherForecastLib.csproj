@@ -48,6 +48,7 @@
     <Compile Include="WeatherForecastDocument.cs" />
     <Compile Include="WeatherForecastItem.cs" />
     <Compile Include="WeatherForecastService.cs" />
+    <Compile Include="WeatherForecastServiceResponseException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

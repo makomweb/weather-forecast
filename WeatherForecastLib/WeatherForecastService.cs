@@ -12,11 +12,15 @@ namespace WeatherForecastLib
             var http = new HttpClient();
             var uri = new OpenWeatherMapApi().GetServiceUri(cityId);
             var response = await http.GetAsync(uri);
-            return await DeserializeAsync(response);
+            return await DeserializeOnSuccessAsync(response);
         }
         
-        private static async Task<WeatherForecastDocument> DeserializeAsync(HttpResponseMessage response)
+        private static async Task<WeatherForecastDocument> DeserializeOnSuccessAsync(HttpResponseMessage response)
         {
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new WeatherForecastServiceResponseException(response);
+            }
 
             var stream = await response.Content.ReadAsStreamAsync();
             var raw = DeserializeFromStream<dynamic>(stream);
