@@ -6,7 +6,20 @@
              xmlns:local="clr-namespace:WeatherForecastApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="{Binding Weekday}" />
+        <TextBlock Text="{Binding Date}" />
+        <ItemsControl ItemsSource="{Binding Items}" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:ForecastDayItemView DataContext="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
 </UserControl>
