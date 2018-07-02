@@ -11,6 +11,7 @@ namespace WeatherForecastTests
     public class WeatherForecastServiceTests
     {
         [TestMethod]
+        [Ignore("This is an explorative test. Please do not run it automatically!")]
         public async Task Fetch_forecast_should_succeed()
         {
             var service = new WeatherForecastService();
