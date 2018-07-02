@@ -6,7 +6,8 @@
         xmlns:views="clr-namespace:WeatherForecastApp.Views"
         xmlns:viewmodels="clr-namespace:WeatherForecastApp.ViewModels"
         mc:Ignorable="d"
-        Title="Weather">
+        Title="Weather" Height="820" Width="1024">
+
     <Window.Resources>
         <viewmodels:ForecastViewModel x:Key="ViewModel"/>
     </Window.Resources>
