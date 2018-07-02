@@ -32,12 +32,23 @@ namespace WeatherForecastLib
             }
 
             var city = Cities.FirstOrDefault(c => string.Compare(c.Name, cityName, true) == 0);
+            if (city == null)
+            {
+                throw new CityNotFoundException(cityName);
+            }
+
             return city.Id;
         }
 
         private int GetCityId(string cityName, string countryCode)
         {
             var city = Cities.FirstOrDefault(c => IsSameCity(c, cityName, countryCode));
+
+            if (city == null)
+            {
+                throw new CityNotFoundException(cityName, countryCode);
+            }
+
             return city.Id;
         }
 
