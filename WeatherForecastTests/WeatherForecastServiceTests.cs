@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace WeatherForecastTests
 {
     [TestClass]
-    public class UnitTest1
+    public class WeatherForecastServiceTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Fetch_forecast_should_succeed()
         {
         }
     }
