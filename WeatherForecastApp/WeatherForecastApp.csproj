@@ -57,6 +57,8 @@
     <Compile Include="ViewModels\ForecastDayItemViewModel.cs" />
     <Compile Include="ViewModels\ForecastDayViewModel.cs" />
     <Compile Include="ViewModels\ForecastViewModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ForecastDayItemView.xaml.cs">
       <DependentUpon>ForecastDayItemView.xaml</DependentUpon>
     </Compile>
