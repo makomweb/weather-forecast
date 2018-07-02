@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WeatherForecastLib;
 
@@ -62,14 +66,18 @@ namespace WeatherForecastApp.ViewModels
             try
             {
                 var id = await GetCityId(city);
-
-                Title = Title + id;
+                var service = new WeatherForecastService();
+                var forecast = await service.FetchForecastAsync(id + "");
+                Title = $"Weather in {forecast.CityName}, {forecast.CountryCode}";
+                Publish(forecast);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        public ObservableCollection<ForecastDayViewModel> Days { get; } = new ObservableCollection<ForecastDayViewModel>();
 
         private Task<int> GetCityId(string city)
         {
@@ -83,6 +91,25 @@ namespace WeatherForecastApp.ViewModels
             return _cityService.GetCityIdAsync(city);
         }
 
+        private void Publish(WeatherForecastDocument doc)
+        {
+            var days = CreateDayViewModels(doc);
+            Days.Clear();
+            foreach (var d in days)
+            {
+                Days.Add(d);
+            }
+        }
+
+        private static IEnumerable<ForecastDayViewModel> CreateDayViewModels(WeatherForecastDocument doc)
+        {
+            var groups = doc.Items.GroupBy(i => i.TimeUtc.ToLocalTime().Date).Select(x => x);
+
+            foreach (var group in groups.Take(5))
+            {
+                var items = group.Select(i => new ForecastDayItemViewModel(i));
+                yield return new ForecastDayViewModel(group.Key, items);
+            }
         }
     }
 }
