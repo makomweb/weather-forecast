@@ -53,6 +53,9 @@
     <Compile Include="WeatherForecastServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\weather-response-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
