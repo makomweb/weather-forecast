@@ -21,7 +21,7 @@ namespace WeatherForecastApp.ViewModels
             TemperatureMinimum = $"{Math.Round(item.MinimumTemperatureCelsius, 1)} °C";
             TemperatureMaximum = $"{Math.Round(item.MaximumTemperatureCelsius, 1)} °C";
             Description = item.Description;
-            IconUri = item.Icon;
+            IconUri = new IconService().GetIconUri(item.Icon);
         }
     }
 }
