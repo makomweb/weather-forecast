@@ -1,5 +1,7 @@
 # weather-forecast
-A single view WPF application which shows the weather forecast for the next 5 days using the Open Weather Map API
+A single view WPF application which shows the weather forecast for the next 5 days using the [Open Weather Map API](https://openweathermap.org/forecast5).
+
+![screenshot](screenshot.png)
 
 # To-Do
 - localization
