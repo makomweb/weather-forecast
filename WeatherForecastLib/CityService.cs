@@ -24,7 +24,7 @@ namespace WeatherForecastLib
             return Task.Run(() => GetCityId(cityName, countryCode));
         }
 
-        private int GetCityId(string cityName)
+        public int GetCityId(string cityName)
         {
             if (string.IsNullOrWhiteSpace(cityName))
             {
@@ -40,7 +40,7 @@ namespace WeatherForecastLib
             return city.Id;
         }
 
-        private int GetCityId(string cityName, string countryCode)
+        public int GetCityId(string cityName, string countryCode)
         {
             var city = Cities.FirstOrDefault(c => IsSameCity(c, cityName, countryCode));
 

@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Cities.cs" />
     <Compile Include="ViewModels\ForecastDayItemViewModel.cs" />
     <Compile Include="ViewModels\ForecastDayViewModel.cs" />
     <Compile Include="ViewModels\ForecastViewModel.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Views\CityEditTextBox.xaml.cs">
       <DependentUpon>CityEditTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CityInputValidationRule.cs" />
     <Compile Include="Views\ForecastDayItemView.xaml.cs">
       <DependentUpon>ForecastDayItemView.xaml</DependentUpon>
     </Compile>
