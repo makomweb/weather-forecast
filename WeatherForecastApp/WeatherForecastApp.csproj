@@ -59,6 +59,9 @@
     <Compile Include="ViewModels\ForecastViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\CityEditTextBox.xaml.cs">
+      <DependentUpon>CityEditTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ForecastDayItemView.xaml.cs">
       <DependentUpon>ForecastDayItemView.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CityEditTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

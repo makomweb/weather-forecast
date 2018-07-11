@@ -27,12 +27,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
-                <TextBox Width="140" VerticalContentAlignment="Center" Name="CityTextBox">
-                    <TextBox.InputBindings>
+                <views:CityEditTextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox" IsSpaceAllowed="True">
+                    <views:CityEditTextBox.InputBindings>
                         <KeyBinding Key="Return" Command="{Binding SearchCommand}"
                                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}" />
-                    </TextBox.InputBindings>
-                </TextBox>
+                    </views:CityEditTextBox.InputBindings>
+                </views:CityEditTextBox>
             </Grid>
             <Button Grid.Column="2" Content="Search" Command="{Binding SearchCommand}"
                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}"
