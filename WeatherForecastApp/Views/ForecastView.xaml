@@ -27,7 +27,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
-                <views:CityEditTextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox" IsSpaceAllowed="True">
+                <views:CityEditTextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox" IsSpaceAllowed="False">
                     <views:CityEditTextBox.InputBindings>
                         <KeyBinding Key="Return" Command="{Binding SearchCommand}"
                                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}" />
