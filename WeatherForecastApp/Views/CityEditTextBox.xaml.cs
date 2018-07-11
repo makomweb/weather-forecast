@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -13,6 +14,7 @@ namespace WeatherForecastApp.Views
         {
             InitializeComponent();
             InnerTextBox.PreviewKeyDown += OnPreviewKeyDown;
+            InnerTextBox.TextChanged += OnTextChanged;
         }
 
         public static readonly DependencyProperty IsSpaceAllowedProperty = DependencyProperty.Register("IsSpaceAllowed", typeof(bool), typeof(CityEditTextBox));
@@ -23,6 +25,14 @@ namespace WeatherForecastApp.Views
             set { SetValue(IsSpaceAllowedProperty, value); }
         }
 
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(CityEditTextBox));
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
         private void OnPreviewKeyDown(object sender, KeyEventArgs args)
         {
             base.OnPreviewKeyDown(args);
@@ -30,6 +40,11 @@ namespace WeatherForecastApp.Views
             {
                 args.Handled = true;
             }
+        }
+        
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Text = InnerTextBox.Text;
         }
     }
 }
