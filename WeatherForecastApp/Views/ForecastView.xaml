@@ -36,7 +36,8 @@
             </Grid>
             <Button Grid.Column="2" Content="Search" Command="{Binding SearchCommand}"
                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}"
-                    Style="{StaticResource OrgangeButtonStyle}"/>
+                    Style="{StaticResource OrgangeButtonStyle}"
+                    IsEnabled="{Binding ElementName=CityTextBox, Path=Text.Length, Mode=OneWay}"/>
             <TextBlock Grid.Row="2" Text="e.g. Zürich or Zürich, CH" FontStyle="Italic" FontSize="10"
                        HorizontalAlignment="Center"/>
         </Grid>

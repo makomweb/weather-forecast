@@ -74,9 +74,12 @@ namespace WeatherForecastApp.ViewModels
             }
         }
 
+#if false
         public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string),
                                                           arg => !string.IsNullOrWhiteSpace(arg as string));
-
+#else
+        public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string));
+#endif
         private async void OnSearch(string city)
         {
             Title = $"Weather in {city}";
