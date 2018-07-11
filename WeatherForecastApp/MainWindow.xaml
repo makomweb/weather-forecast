@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:WeatherForecastApp.Views"
         xmlns:viewmodels="clr-namespace:WeatherForecastApp.ViewModels"
+        xmlns:p="clr-namespace:WeatherForecastApp.Properties"
         mc:Ignorable="d"
-        Title="Weather Forecast" Height="820" Width="1024">
+        Title="{x:Static p:Resources.Title}" Height="820" Width="1024">
 
     <Window.Resources>
         <viewmodels:ForecastViewModel x:Key="ViewModel"/>

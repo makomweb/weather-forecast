@@ -83,7 +83,8 @@ namespace WeatherForecastApp.ViewModels
         private async void OnSearch(string city)
         {
             city = city.Trim();
-            Title = $"Weather in {city}";
+            var titleFormat = Properties.Resources.Result_Title_Format;
+            Title = string.Format(titleFormat, city);
             Date = DateTime.Now.ToString("D");
             IsBusy = true;
 
@@ -92,7 +93,7 @@ namespace WeatherForecastApp.ViewModels
                 var id = await GetCityId(city);
                 var service = new WeatherForecastService();
                 var forecast = await service.FetchForecastAsync(id + "");
-                Title = $"Weather in {forecast.CityName}, {forecast.CountryCode}";
+                Title = string.Format(titleFormat, $"{forecast.CityName}, {forecast.CountryCode}");
                 Publish(forecast);
             }
             catch (Exception ex)

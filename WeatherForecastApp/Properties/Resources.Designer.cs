@@ -61,6 +61,15 @@ namespace WeatherForecastApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Weather in {0}.
+        /// </summary>
+        public static string Result_Title_Format {
+            get {
+                return ResourceManager.GetString("Result_Title_Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search_Button_Label {

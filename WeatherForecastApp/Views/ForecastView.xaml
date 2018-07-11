@@ -6,7 +6,8 @@
              xmlns:views="clr-namespace:WeatherForecastApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"             
-             FontSize="12">
+             FontSize="12"
+             xmlns:p="clr-namespace:WeatherForecastApp.Properties">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
     </UserControl.Resources>
@@ -34,10 +35,10 @@
                     </views:CityEditTextBox.InputBindings>
                 </views:CityEditTextBox>
             </Grid>
-            <Button Grid.Column="2" Content="Search" Command="{Binding SearchCommand}"
+            <Button Grid.Column="2" Content="{x:Static p:Resources.Search_Button_Label}" Command="{Binding SearchCommand}"
                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}"
                     Style="{StaticResource OrgangeButtonStyle}" />
-            <TextBlock Grid.Row="2" Text="e.g. Zürich or Zürich, CH" FontStyle="Italic" FontSize="10"
+            <TextBlock Grid.Row="2" Text="{x:Static p:Resources.Search_Textblock_Label}" FontStyle="Italic" FontSize="10"
                        HorizontalAlignment="Center"/>
         </Grid>
 
