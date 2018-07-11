@@ -10,7 +10,7 @@ using WeatherForecastLib;
 
 namespace WeatherForecastApp.ViewModels
 {
-    public class ForecastViewModel : ViewModelBase
+    public class ForecastViewModel : NotifyPropertyChangedBase
     {
         private CityService _cityService;
 
