@@ -82,6 +82,7 @@ namespace WeatherForecastApp.ViewModels
 #endif
         private async void OnSearch(string city)
         {
+            city = city.Trim();
             Title = $"Weather in {city}";
             Date = DateTime.Now.ToString("D");
             IsBusy = true;
