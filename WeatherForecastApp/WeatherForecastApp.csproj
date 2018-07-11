@@ -59,6 +59,7 @@
     <Compile Include="ViewModels\ForecastDayViewModel.cs" />
     <Compile Include="ViewModels\ForecastViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="NotifyDataErrorInfoBase.cs" />
     <Compile Include="Views\CityEditTextBox.xaml.cs">
       <DependentUpon>CityEditTextBox.xaml</DependentUpon>
     </Compile>

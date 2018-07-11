@@ -27,12 +27,32 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid>
-                <views:CityEditTextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox" IsSpaceAllowed="False">
-                    <views:CityEditTextBox.InputBindings>
-                        <KeyBinding Key="Return" Command="{Binding SearchCommand}"
-                                    CommandParameter="{Binding ElementName=CityTextBox, Path=Text}" />
-                    </views:CityEditTextBox.InputBindings>
-                </views:CityEditTextBox>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Ellipse Width="8" Height="8" Fill="Red"/>
+
+                <views:CityEditTextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox" IsSpaceAllowed="False" Grid.Column="2">-->
+                <TextBox Width="140" VerticalContentAlignment="Center" x:Name="CityTextBox"
+                         Text="{Binding City, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox"/>
+                                <ItemsControl ItemsSource="{Binding}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+
             </Grid>
             <Button Grid.Column="2" Content="Search" Command="{Binding SearchCommand}"
                     CommandParameter="{Binding ElementName=CityTextBox, Path=Text}"

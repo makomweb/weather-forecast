@@ -10,7 +10,7 @@ using WeatherForecastLib;
 
 namespace WeatherForecastApp.ViewModels
 {
-    public class ForecastViewModel : NotifyPropertyChangedBase
+    public class ForecastViewModel : ViewModelBase
     {
         private CityService _cityService;
 
@@ -18,6 +18,24 @@ namespace WeatherForecastApp.ViewModels
         {
             var json = File.ReadAllText(@".\Data\city-codes.json");
             _cityService = new CityService(json);
+        }
+
+        private string _city;
+
+        public string City
+        {
+            get
+            {
+                return _city;
+            }
+            set
+            {
+                if (_city == value)
+                    return;
+
+                _city = value;
+                NotifyPropertyChanged();
+            }
         }
 
         private string _title;
@@ -90,6 +108,8 @@ namespace WeatherForecastApp.ViewModels
             try
             {
                 var id = await GetCityId(city);
+                Validate(true, nameof(City));
+
                 var service = new WeatherForecastService();
                 var forecast = await service.FetchForecastAsync(id + "");
                 Title = $"Weather in {forecast.CityName}, {forecast.CountryCode}";
@@ -97,6 +117,8 @@ namespace WeatherForecastApp.ViewModels
             }
             catch (Exception ex)
             {
+                Validate(false, nameof(City));
+
                 MessageBox.Show(ex.Message, "Error");
             }
             finally
