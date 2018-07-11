@@ -74,7 +74,8 @@ namespace WeatherForecastApp.ViewModels
             }
         }
 
-        public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string));
+        public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string),
+                                                          arg => !string.IsNullOrWhiteSpace(arg as string));
 
         private async void OnSearch(string city)
         {
