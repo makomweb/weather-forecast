@@ -35,17 +35,8 @@
                 </TextBox>
             </Grid>
             <Button Grid.Column="2" Content="Search" Command="{Binding SearchCommand}"
-                    CommandParameter="{Binding ElementName=CityTextBox, Path=Text}">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=CityTextBox, Path=Text.Length}" Value="0">
-                                <Setter Property="IsEnabled" Value="False"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+                    CommandParameter="{Binding ElementName=CityTextBox, Path=Text}"
+                    Style="{StaticResource OrgangeButtonStyle}" />
             <TextBlock Grid.Row="2" Text="e.g. Zürich or Zürich, CH" FontStyle="Italic" FontSize="10"
                        HorizontalAlignment="Center"/>
         </Grid>

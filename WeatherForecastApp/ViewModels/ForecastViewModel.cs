@@ -74,7 +74,7 @@ namespace WeatherForecastApp.ViewModels
             }
         }
 
-#if false // It's better to use command binding with can-execute from here!
+#if true // It's better to use command binding with can-execute from here!
         public ICommand SearchCommand => new RelayCommand(arg => OnSearch(arg as string),
                                                           arg => !string.IsNullOrWhiteSpace(arg as string));
 #else
